@@ -1,0 +1,969 @@
+/* Инструкции ======================================================*/
+
+/*
+Шрифт из плагина в VS Code
+Жмем F1 (cmd shift p)
+Пишем Google Fonts
+Выбираем import
+Пишем имя шрифта
+Убираем лишнее
+Добавляем кавычки "" и запись:
+&display=swap  - сообщит браузеру сначала использовать fallback, то есть системный шрифт (sans-serif например), а затем заменить его на реальный шрифт после его загрузки. Так можно избежать задержки в загрузке контента, когда шрифт ещё не прогрузился и улучшить производительность.
+&subset=cyrillic-ext - для кирилицы
+&display=swap&subset=cyrillic-ext - для двух параметоров одновременно
+
+*/
+/* Подключаем шрифты ======================================================*/
+
+/* google */
+/* @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"); */
+/* plugin google*/
+@import url("https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700&display=swap&subset=cyrillic-ext");
+
+
+/* local */
+@font-face {
+   font-weight: normal;
+   font-family: "FuturaDemiC";
+   font-style: normal;
+
+   font-display: swap;
+   src: url("../fonts/FuturaDemiC.woff2") format("woff2"),
+   url("../fonts/FuturaDemiC.woff") format("woff");
+}
+
+@font-face {
+   font-weight: normal;
+   font-family: "FuturaBookC";
+   font-style: normal;
+
+   font-display: swap;
+   src: url("../fonts/FuturaBookC.woff2") format("woff2"),
+   url("../fonts/FuturaBookC.woff") format("woff");
+}
+
+
+
+/* Стили обнуления ========================================================*/
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+
+   border: 0;
+}
+
+li {
+   list-style: none;
+}
+
+a,
+a:visited {
+   color: inherit;
+   text-decoration: none;
+}
+
+a:hover {
+   text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: inherit;
+   font-size: inherit;
+}
+
+img {
+   max-width: 100%;
+
+   vertical-align: top; /* убирает фантомные отступы у картинки*/
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+   -webkit-appearance: none;
+      -moz-appearance: none;
+           appearance: none;
+}
+
+body {
+   line-height: 1;
+   font-family: "FuturaBookC", sans-serif;
+   /* color: #ececec; */
+   color: azure;
+
+   background-color: rgb(160, 160, 160);
+
+
+   /* font-size: 16px; можно не указывать, 16px значение по умолчанию */
+}
+
+button {
+   /* background-color: transparent; */
+   cursor: pointer;
+}
+
+input,
+button,
+textarea {
+   font-family: inherit;
+}
+/* Основные стили ================================================================*/
+.container {
+   max-width: 1120px;
+   margin: 0 auto;
+   padding: 0 10px;
+}
+/* <header> ======================================================================*/
+
+.header {
+}
+.header__block {
+   position: fixed;
+   top: 0;
+   left: 0 ;
+   z-index: 10;
+
+   width: 100%;
+
+   font-size: 0;
+   text-align: center;
+
+   background-color: #0051ff;
+}
+.hide-menu {
+}
+.mobile-menu {
+}
+.header__logo-block {
+   display: inline-block;
+   max-width: 250px;
+   margin: 0 40px 0 0;
+
+   vertical-align: middle;
+}
+.header__logo-link {
+}
+.header__menu {
+   display: inline-block;
+
+   vertical-align: middle;
+}
+.menu {
+}
+.menu__block {
+}
+.menu__nav {
+}
+.menu__list {
+}
+.menu__item {
+   position: relative;
+
+   display: inline-block;
+   margin: 0 20px 0 0;
+}
+.menu__item:hover .menu__sub-list,
+.menu__item .menu__link:focus + .menu__sub-list
+/* ,
+.menu__sub-link:focus  */ {
+   /* visibility: visible;
+   opacity: 1; */
+   display: inline-block;
+}
+.menu__item:last-child .menu__sub-list {
+   right: 0;
+   left: auto;
+}
+.menu__item:last-child .menu__sub2-list {
+   right: 0;
+   right: calc(100% + 15px);
+   left: auto;
+}
+.menu__item:last-child {
+   margin-right: 50px;
+}
+.menu__item:hover .menu__link,
+.menu__link:focus {
+   border-bottom: 2px solid #feb80b;
+}
+.menu__item:hover::after
+/* ,
+.menu__link:focus::after  */ {
+   content: "";
+   position: absolute;
+   top: 100%;
+   left: -50%;
+
+   width: 250%;
+   height: 15px;
+
+   /* background-color: #ffffff; */
+}
+.menu__link {
+   display: inline-block;
+   padding: 35px 2px;
+
+   font-size: 20px;
+   font-family: "Oswald";
+   /* vertical-align: middle; */
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+
+   border-bottom: 2px solid transparent;
+   outline: none;
+}
+a:focus {
+   /* * тут нужно разоабраться  Не во всех браузерах работает focus так как ожидается  (safari / firefox) */
+}
+.menu__link--icon {
+   padding-right: 33px;
+
+   background: url("../img/aerth.svg") right / 24% no-repeat;
+}
+.menu__sub-list {
+   /* ! тут лучше использовать visibility: hidden; и opacity: 0, а не display: none; */
+   position: absolute;
+   top: calc(100% + 15px );
+   left: 0;
+   /* visibility: hidden; */
+   /* opacity: 0; */
+
+   display: none;
+   /* text-align: left; */
+   /* min-width: 160px; */
+   padding: 15px 0;
+
+   background-color: #feb80b;
+   border: 1px solid black;
+}
+.menu__sub-item {
+   position: relative;
+
+   margin: 0 0 20px 0;
+
+   /* border: 1px solid black; */
+}
+.menu__sub-item:hover::before
+/* ,
+.menu__sub-item:focus::before  */ {
+   content: "";
+   position: absolute;
+   top: -50%;
+   right: 100%;
+
+   width: 100%;
+   height: 350%;
+
+   /* background-color: #ffffff; */
+}
+.menu__sub-item:hover::after {
+   content: "";
+   position: absolute;
+   top: -50%;
+   left: 100%;
+
+   width: 100%;
+   height: 350%;
+}
+.menu__sub-item:hover {
+   color: #0051ff;
+}
+.menu__sub-item:hover .menu__sub2-list {
+   /* visibility: visible;
+		opacity: 1; */
+   display: inline-block;
+}
+.menu__sub-item:first-child {
+   margin: 0 0 20px 0;
+}
+.menu__sub-item:last-child {
+   margin-bottom: 0;
+}
+.menu__sub-link {
+   display: inline-block;
+   min-width: 200px;
+   padding: 5px 0;
+
+   font-size: 20px;
+   font-family: "Oswald";
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+}
+.menu__sub2-list {
+   position: absolute;
+   top: -16px;
+   left: calc(100% + 15px);
+   z-index: 2;
+   /* visibility: hidden; */
+   /* opacity: 0; */
+
+   display: none;
+   min-width: 160px;
+   padding: 15px 0;
+
+   background-color: #feb80b;
+   border: 1px solid black;
+}
+.menu__sub2-item {
+   display: inline-block;
+   margin: 0 0 20px 0;
+
+   color: #ececec;
+
+   /* border: 1px solid black; */
+}
+.menu__sub2-item:last-child {
+   margin-bottom: 0;
+}
+.menu__sub2-item:hover {
+   color: #0051ff;
+}
+.menu__sub2-link {
+   display: inline-block;
+   min-width: 200px;
+   padding: 5px 0;
+
+   font-size: 20px;
+   font-family: "Oswald";
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+}
+.header__search {
+}
+.search {
+   position: relative;
+
+   display: inline-block;
+
+   vertical-align: middle;
+}
+.search__body {
+}
+.search__inp {
+   display: inline-block;
+
+   vertical-align: middle;
+}
+.search__input {
+}
+/* ! стили */
+.input {
+   width: 160px;
+   height: 28px;
+   padding: 5px 31px 5px 10px;
+
+   font-size: 16px;
+   font-family: "Oswald";
+   letter-spacing: 0.05em;
+
+   border: 3px solid transparent;
+   border-radius: 30px;
+   outline: none;
+}
+.input:focus {
+   border: 3px solid #feb80b;
+}
+
+.search__btn {
+   position: absolute;
+   top: calc(50% - 15px);
+   right: 2px;
+
+   margin-left: 5px;
+
+   vertical-align: middle;
+}
+.search__button {
+}
+.button {
+   width: 30px;
+   height: 30px;
+
+   background: url("../img/search.png") center / contain no-repeat;
+   outline: none;
+   /* filter: drop-shadow(1px -1px 0px #feb80b) drop-shadow(-1px -1px 0px #feb80b) drop-shadow(-1px 1px 0px #feb80b) drop-shadow(1px 1px 0px #feb80b); */
+}
+.button:focus {
+   filter: drop-shadow(1px -1px 0px #feb80b) drop-shadow(-1px -1px 0px #feb80b) drop-shadow(-1px 1px 0px #feb80b) drop-shadow(1px 1px 0px #feb80b);
+}
+/* .header__button {
+}
+.button {
+}
+.button__item {
+}
+.button__item a {
+} */
+
+
+/* </header> ======================================================================*/
+/* <main>==========================================================================*/
+.span {
+   color: #0051ff;
+}
+input {
+   display: block;
+}
+.main {
+}
+.main__form-all .input:focus,
+.main__form-all .input:hover {
+   border: 3px solid #0051ff;
+}
+.main__block {
+   margin-top: 130px;
+
+   color: #ffffff;
+}
+.main__title {
+   margin: 0 0 30px 0;
+
+   font-weight: 700;
+   font-size: 30px;
+   text-transform: uppercase;
+}
+.main__form-all {
+}
+.form-all {
+}
+.form-all__body {
+}
+.form-all__txt {
+}
+.form-all__line {
+   margin: 0 0 40px 0;
+}
+.form-all__line label {
+   display: inline-block;
+   margin: 0 0 15px 0;
+
+   font-size: 24px;
+   line-height: 32px;
+   font-family: "Oswald";
+   letter-spacing: 0.051em;
+   word-spacing: 0.3em;
+}
+.form-all__line .input {
+   width: 200px;
+   padding: 5px 10px 5px 10px;
+}
+
+.form-all__text {
+}
+.text {
+}
+.input {
+}
+.form-all__txt-a {
+}
+.form-all__text-a {
+}
+.text-a {
+}
+.text-a::placeholder {
+   color: #0051ff;
+}
+.form-all__chb {
+}
+.form-all__checkbox {
+   position: relative;
+
+   margin: 0 0 25px 0;
+}
+.form-all__checkbox label {
+   position: relative;
+}
+.form-all__checkbox label[for="checkbox-3"] {
+   margin: 0 0 0 0;
+   padding: 0 0 0 36px;
+}
+.form-all__checkbox label[for="checkbox-3"]::before {
+   content: "";
+   position: absolute;
+   top: 3px;
+   left: 0;
+
+   width: 1em;
+   height: 1em;
+
+   background-color: rgb(255, 255, 255);
+   border: 3px solid transparent;
+   outline: 0.5px solid rgb(80, 80, 80);
+}
+.form-all__checkbox:last-child {
+   margin: 0 0 0 0;
+}
+.checkbox {
+   width: 30px;
+   height: 30px;
+}
+.checkbox-1 {
+}
+.checkbox-2 {
+}
+.checkbox-3 {
+   position: absolute;
+   top: 0;
+   left: 0;
+
+   width: 0;
+   height: 0;
+   /* visibility: hidden; */
+   /* * для элементов, которые учавствуют в табуляции нельзя использовать visibility: hidden; и dispaly: none; */
+
+   opacity: 0;
+}
+.checkbox-3:checked + label[for="checkbox-3"]::before {
+   background-color: #feb80b;
+   border: 3px solid #0051ff;
+}
+
+
+.checkbox:focus,
+.checkbox:hover {
+   outline: 2px solid #0051ff;
+   outline-offset: 0;
+   /* outline-color: #0051ff; */
+}
+.checkbox:focus + label[for="checkbox-3"]::before,
+.checkbox + label[for="checkbox-3"]:hover::before {
+   border: 3px solid #0051ff;
+}
+.form-all__clr {
+}
+.form-all__color {
+}
+.color {
+   width: 200px;
+   height: 30px;
+   padding: 0 10px;
+
+   border: 3px solid transparent;
+   border-radius: 30px;
+   outline: none;
+}
+.color:focus,
+.color:hover {
+   border: 3px solid #0051ff;
+}
+.form-all__dt {
+}
+.form-all__date {
+}
+.date {
+   width: 200px;
+   height: 30px;
+   padding: 5px 10px;
+
+   font-size: 20px;
+   color: #0051ff;
+
+   background-color: #feb80b;
+   border: 3px solid transparent;
+   border-radius: 30px;
+   outline: none;
+}
+.date:focus,
+.date:hover {
+   border: 3px solid #0051ff;
+}
+.form-all__dtm {
+}
+.form-all__datetime {
+}
+.datetime {
+   width: 250px;
+   height: 40px;
+   padding: 5px 3px;
+
+   font-size: 18px;
+   /* color: #0051ff; */
+   /* background-color: #feb80b; */
+
+   border: 3px solid transparent;
+   border-radius: 30px;
+   outline: none;
+}
+.datetime:focus,
+.datetime:hover {
+   border: 3px solid #0051ff;
+}
+.datetime::placeholder {
+   padding: 5px 10px;
+
+   color: white;
+
+   background-color: red;
+   border-radius: 20px;
+}
+.form-all__dtl {
+}
+.form-all__datetime-local {
+}
+.datetime-local {
+   width: 250px;
+   height: 30px;
+   padding: 5px 10px;
+
+   font-size: 20px;
+   color: #0051ff;
+   /* 
+   background-color: #feb80b; */
+
+   border: 3px solid transparent;
+   border-radius: 30px;
+   outline: none;
+}
+.datetime-local:focus,
+.datetime-local:hover {
+   border: 3px solid #0051ff;
+}
+.form-all__eml {
+}
+.form-all__email {
+}
+.email {
+   width: 250px;
+   height: 30px;
+   padding: 5px 10px;
+
+   font-size: 20px;
+   /* color: #0051ff; */
+   /* 
+   background-color: #feb80b; */
+
+   border: 3px solid transparent;
+   border-radius: 30px;
+   outline: none;
+   box-shadow: 0 0 13px 2px #0051ff;
+}
+.email:focus,
+.email:hover {
+   border: 3px solid #0051ff;
+}
+.form-all__fl {
+}
+.form-all__file {
+   position: relative;
+}
+.form-all__file label::after {
+   position: absolute;
+}
+.file {
+   position: absolute;
+   top: 0;
+   left: 0;
+
+   width: 0;
+   height: 0;
+   /* visibility: hidden; */
+   /* * для элементов, которые учавствуют в табуляции нельзя использовать visibility: hidden; и dispaly: none; */
+
+   opacity: 0;
+}
+.file + label::after {
+   content: "";
+   position: absolute;
+   top: 4px;
+   left: 0;
+
+   width: 1em;
+   height: 1em;
+   /* background-color: rgb(255, 255, 255); */
+
+   background: white url("../img/file.png") 0 2px / contain  no-repeat;
+   border: 3px solid transparent;
+   border-radius: 50%;
+}
+.file + label {
+   padding: 0 0 0 30px;
+
+   cursor: pointer;
+}
+.file:focus + label,
+.file + label:hover {
+   text-shadow: 0 0 2px #0051ff;
+}
+.file:focus + label::after,
+.file + label:hover::after {
+   background-color: #feb80b;
+}
+.form-all__fl-m {
+}
+.form-all__line {
+}
+.form-all__file-m {
+}
+.file-m {
+   width: 310px;
+   height: 45px;
+   padding: 6px 10px 5px 10px;
+
+   font-size: 16px;
+   line-height: 24px;
+   font-family: "Oswald";
+   letter-spacing: 0.05em;
+
+   border: 2px solid transparent;
+   border-radius: 30px;
+   outline: none;
+}
+.file-m:hover,
+.file-m:focus {
+   background-color: #feb80b;
+   border: 2px solid #0051ff;
+}
+.form-all__hdn {
+}
+.form-all__hidden label {
+   font-size: 40px;
+   line-height: 55px;
+}
+.hidden {
+   border: 1px solid black;
+}
+.hidden:focus + label {
+   border: 10px solid black;
+}
+.form-all__img {
+}
+.form-all__image {
+}
+.image {
+   width: 150px;
+   height: 150px;
+
+   border: 2px solid transparent;
+   border-radius: 50%;
+   outline: none;
+}
+.image:hover,
+.image:focus {
+   border: 2px solid #0051ff;
+}
+.form-all__mth {
+}
+.form-all__month {
+}
+.month {
+   width: 250px;
+   height: 30px;
+   padding: 5px 10px;
+
+   font-weight: 700;
+   font-size: 20px;
+   color: #0051ff;
+   font-style: italic;
+
+   background-color: #feb80b;
+   border: 3px solid transparent;
+   border-radius: 30px;
+   outline: none;
+   box-shadow: 0 0 13px 2px #0051ff;
+}
+.month:hover,
+.month:focus {
+   border: 3px solid #0051ff;
+}
+.form-all__nbr {
+}
+.form-all__number {
+}
+.number {
+   width: 250px;
+   height: 30px;
+   padding: 5px 10px;
+
+   font-weight: 700;
+   font-size: 20px;
+   /* background-color: #feb80b; */
+   /* line-height: 50px; */
+   color: #0051ff;
+   font-style: italic;
+
+   border: 3px solid transparent;
+   border-radius: 30px;
+   outline: none;
+   /* box-shadow: 0 0 13px 2px #0051ff; */
+}
+.number:hover,
+.number:focus {
+   border: 3px solid #0051ff;
+}
+.form-all__pswd {
+}
+.form-all__password {
+}
+.password {
+   width: 250px;
+   height: 30px;
+   padding: 5px 10px;
+
+   font-weight: 700;
+   font-size: 20px;
+   /* line-height: 50px; */
+   color: #feb80b;
+   font-style: italic;
+   text-shadow: 2px 2px 1px #0051ff;
+   /* background-color: #feb80b; */
+
+   border: 3px solid transparent;
+   border-radius: 30px;
+   outline: none;
+   /* box-shadow: 0 0 13px 2px #0051ff; */
+}
+.password:hover,
+.password:focus {
+   border: 3px solid #0051ff;
+}
+.form-all__rd {
+}
+.form-all__radio {
+   position: relative;
+
+   margin: 0 0 20px 0;
+}
+
+.form-all__radio label img {
+   display: block;
+   width: 100px;
+   max-width: 100%;
+   margin: 15px 0 0 0;
+}
+.form-all__radio label[for="radio-2"] + input {
+   width: 50px;
+   height: 50px;
+}
+#radio-3 {
+   position: absolute;
+   top: 0;
+   left: 0;
+
+   width: 0;
+   height: 0;
+   /* visibility: hidden; */
+   /* * для элементов, которые учавствуют в табуляции нельзя использовать visibility: hidden; и dispaly: none; */
+
+   opacity: 0;
+}
+#radio-3 + label {
+   padding: 0 0 0 40px;
+}
+#radio-3 + label::before {
+   content: "";
+   position: absolute;
+   top: 3px;
+   left: 0;
+
+   width: 1em;
+   height: 1em;
+
+   background-color: rgb(255, 255, 255);
+   border: 3px solid transparent;
+   border-radius: 50%;
+   /* outline: 0.5px solid rgb(80, 80, 80); */
+}
+#radio-3:checked + label::before {
+   background-color: #feb80b;
+   border: 3px solid #0051ff;
+}
+#radio-3 + label:hover::before {
+   border: 3px solid #0051ff;
+}
+.radio {
+   /* width: 50px; */
+   /* height: 50px; */
+   /* padding: 5px 10px; */
+   /* font-weight: 700; */
+   /* font-size: 20px; */
+   /* line-height: 50px; */
+   color: #feb80b;
+   font-style: italic;
+   text-shadow: 2px 2px 1px #feb80b;
+
+   background-color: #feb80b;
+   border: 3px solid transparent;
+   border-radius: 30px;
+   /* outline: none; */
+   /* box-shadow: 0 0 13px 2px #0051ff; */
+}
+.radio:hover,
+.radio:focus {
+   border: 3px solid #0051ff;
+}
+.form-all__rng {
+}
+.form-all__range {
+}
+.range {
+}
+.form-all__rng-2 {
+}
+.form-all__range-2 {
+}
+.range-2 {
+}
+.form-all__rst {
+}
+.form-all__reset {
+}
+.reset {
+}
+.form-all__srch {
+}
+.form-all__search {
+}
+.search {
+}
+.form-all__tel {
+}
+.form-all__telephone {
+}
+.tel {
+}
+.form-all__tm {
+}
+.form-all__time {
+}
+.time {
+}
+.form-all__url {
+}
+.url {
+}
+.week {
+}
+.form-all__txtr {
+}
+.form-all__textarea {
+}
+.textarea {
+}
+.form-all__slt {
+}
+.form-all__select {
+}
+.select {
+}
+.form-all__sbm {
+}
+.form-all__submit {
+}
+.submit {
+}
+
+/* </main>=======================================================================*/
+/* <footer>======================================================================*/
+
+
+
+/* </footer>======================================================================*/

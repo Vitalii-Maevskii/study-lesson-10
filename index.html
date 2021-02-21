@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson 10</title>
+</head>
+
+<body>
+	<header class="header" id="header">
+		<div class="header__block">
+			<!-- <div class="hide-menu" id="hide-menu"></div>
+			<div class="mobile-menu" id="mobile-menu"></div> -->
+			<div class="container">
+				<div class="header__logo-block">
+					<a href="index.html" class="header__logo-link"><img src="img/logo.png" alt="описание логотипа"></a>
+				</div>
+				<div class="header__menu menu">
+					<div class="menu__block">
+						<nav class="menu__nav">
+							<ul class="menu__list">
+								<li class="menu__item"><a href="#" class="menu__link">menu</a></li>
+								<li class="menu__item"><a href="#" class="menu__link">about</a>
+									<ul class="menu__sub-list">
+										<li class="menu__sub-item"><a href="#" class="menu__sub-link">news</a></li>
+										<li class="menu__sub-item"><a href="#" class="menu__sub-link">history</a></li>
+										<li class="menu__sub-item"><a href="#" class="menu__sub-link">vacancies</a>
+											<ul class="menu__sub2-list">
+												<li class="menu__sub2-item"><a href="#" class="menu__sub2-link">manager</a></li>
+												<li class="menu__sub2-item"><a href="#" class="menu__sub2-link">operator</a></li>
+												<li class="menu__sub2-item"><a href="#" class="menu__sub2-link">secretary</a></li>
+												<li class="menu__sub2-item"><a href="#" class="menu__sub2-link">driver</a></li>
+												<li class="menu__sub2-item"><a href="#" class="menu__sub2-link">cleaner</a></li>
+											</ul>
+										</li>
+										<li class="menu__sub-item"><a href="#" class="menu__sub-link">feedback</a></li>
+										<li class="menu__sub-item"><a href="#" class="menu__sub-link">phone</a></li>
+									</ul>
+								</li>
+								<li class="menu__item"><a href="#" class="menu__link">contact</a></li>
+								<li class="menu__item"><a href="#" class="menu__link">map</a></li>
+								<li class="menu__item"><a href="#" class="menu__link">shop</a></li>
+								<li class="menu__item"><a href="#" class="menu__link menu__link--icon">logistic</a>
+									<ul class="menu__sub-list">
+										<li class="menu__sub-item"><a href="#" class="menu__sub-link">news</a></li>
+										<li class="menu__sub-item"><a href="#" class="menu__sub-link">history</a></li>
+										<li class="menu__sub-item"><a href="#" class="menu__sub-link">vacancies</a>
+											<ul class="menu__sub2-list">
+												<li class="menu__sub2-item"><a href="#" class="menu__sub2-link">manager</a></li>
+												<li class="menu__sub2-item"><a href="#" class="menu__sub2-link">operator</a></li>
+												<li class="menu__sub2-item"><a href="#" class="menu__sub2-link">secretary</a></li>
+												<li class="menu__sub2-item"><a href="#" class="menu__sub2-link">driver</a></li>
+												<li class="menu__sub2-item"><a href="#" class="menu__sub2-link">cleaner</a></li>
+											</ul>
+										</li>
+										<li class="menu__sub-item"><a href="#" class="menu__sub-link">feedback</a></li>
+										<li class="menu__sub-item"><a href="#" class="menu__sub-link">phone</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<form class="header__search search" action="#">
+					<div class="search__body">
+						<div class="search__inp seacrh__line">
+							<div class="search__input">
+								<input class="input" name="search" required minlength="4" maxlength="20"
+									placeholder="введите запрос" autocomplete="off">
+							</div>
+						</div>
+						<div class="search__btn seacrh__line">
+							<div class="search__button">
+								<button class="button" type="submit"></button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- <div class="header__button button">
+					<div class="button__item"><a href="#hide-menu">hide menu</a></div>
+					<div class="button__item"><a href="#mobile-menu">mobile menu</a></div>
+				</div> -->
+			</div>
+		</div>
+	</header>
+
+
+
+	<main class="main">
+		<div class="container">
+			<div class="main__block">
+				<div class="main__title">
+					<h1>all input tags with a type attribute that we know:</h1>
+				</div>
+				<form class="main__form-all form-all" action="#" enctype=“multipart/form-data”>
+					<!-- todo  method="POST" для возможности загрузки файлов добавить в тег form-->
+					<div class="form-all__body">
+						<div class="form-all__txt form-all__line">
+							<div class="form-all__text">
+								<label for="text-1">Заполнить поле (как видишь при наведении на текст срабатывает :hover для
+									input, так происходит из-за связки label и input через for и id соответственно)</label>
+								<input class="text input" id="text-1" name="text-1" type="text"
+									placeholder="ты видишь placeholder" value="ты видишь value">
+							</div>
+						</div>
+						<div class="form-all__txt-a form-all__line">
+							<div class="form-all__text-a">
+								<label for="text-2">Заполнить поле без autocomplete (как ты видишь через псевдоэлемент
+									::placeholder можно изменить стили значения одноименного атрибута)</label>
+								<input class="text-a input" id="text-2" name="text-2" type="text" autocomplete="off"
+									placeholder="ты видишь placeholder">
+							</div>
+						</div>
+						<div class="form-all__chb form-all__line">
+							<div class="form-all__checkbox">
+								<label for="checkbox-1">Выбрать (и / или)</label>
+								<input class="checkbox-1 checkbox" type="checkbox" name="checkbox-1" id="checkbox-1"
+									value="value-1">
+							</div>
+							<div class="form-all__checkbox">
+								<label for="checkbox-2">Выбрать (и / или) (на сервер отправиться
+									checkbox-2=value-2 т.к. заданы атрибуты name="checkbox-2" и value="value-2")</label>
+								<input class="checkbox-2 checkbox" type="checkbox" name="checkbox-2" id="checkbox-2"
+									value="value-2">
+							</div>
+							<div class="form-all__checkbox">
+								<input class="checkbox-3 checkbox" type="checkbox" name="checkbox-3" id="checkbox-3">
+								<label for="checkbox-3">Выбрать (и / или) без атрибута value (на сервер отправиться
+									checkbox-3=on т.к. задан атрибут name="checkbox-3" но не value) Кастомные стили
+									checkbox-3</label>
+							</div>
+						</div>
+						<div class="form-all__clr form-all__line">
+							<div class="form-all__color">
+								<label for="color">Возможность выбрать цвет type="color" (так же возможно задать цвет по
+									умолчанию через атрибут value="#feb80b" </label>
+								<input class="color" type="color" name="color" id="color" value="#feb80b">
+							</div>
+						</div>
+						<div class="form-all__dt form-all__line">
+							<div class="form-all__date">
+								<label for="date">Возможность выбрать дату type="date" (но только в safari не будет всплывающего
+									окна с календарем и в это поле возможно будет ввести текст) </label>
+								<input class="date" type="date" name="date" id="date" value="2021-02-22">
+							</div>
+						</div>
+						<div class="form-all__dtm form-all__line">
+							<div class="form-all__datetime">
+								<label for="datetime">Возможность выбрать время и дату. VSCode предлагает type="datetime", но
+									это нигде
+									не работает и чтобы такое шикарное поле не пропадало, мы немного поэкпериментируем =)
+								</label>
+								<input class="datetime" type="datetime" name="datetime" id="datetime"
+									placeholder="ты видишь placeholder" value="удали значение value">
+							</div>
+						</div>
+						<div class="form-all__dtl form-all__line">
+							<div class="form-all__datetime-local">
+								<label for="datetime-local">А вот type="datetime-local" работает в chrome и opera, но не в
+									safari и firefox</label>
+								<input class="datetime-local" type="datetime-local" name="datetime-local" id="datetime-local"
+									value="2021-02-22T13:00">
+							</div>
+						</div>
+						<div class="form-all__eml form-all__line">
+							<div class="form-all__email">
+								<label for="email">Поле для ввода адреса электонной почты</label>
+								<input class="email" type="email" name="email" id="email" placeholder="ты видишь placeholder"
+									value="ты видишь value">
+							</div>
+						</div>
+						<div class="form-all__fl form-all__line">
+							<div class="form-all__file">
+								<input class="file" type="file" name="file" id="file">
+								<label for="file">Возможность загрузки файла (псевдокласс :focus не срабатывает в
+									safari) Поле input скрыто, костомные стили.</label>
+							</div>
+						</div>
+						<div class="form-all__fl-m form-all__line">
+							<div class="form-all__file-m">
+								<label for="file-m">Возможность загрузки несколько файлов атрибут multiple (так же с атрибутом
+									<span class="span">accept=".jpg, .jpeg, .psd"</span> будет фильтрация пользовательских
+									файлов. Пользоваталь сможет
+									отключить этот фильтр. Важно понимать, что это не запрет на другие файлы, а именно
+									филтьтр/помощь) (псевдокласс :focus не срабатывает в safari) так же текст "файл не выбран" в
+									safari не центруется по кнопке "выбрать файл". Надпись на кнопке тоже в каждом браузере своя.
+									Сходятся только chrome и opera. </label>
+								<input class="file-m" type="file" name="file-m" id="file-m" multiple accept=".jpg, .jpeg, .psd">
+							</div>
+						</div>
+						<div class="form-all__hdn form-all__line">
+							<div class="form-all__hidden">
+								<input class="hidden" type="hidden" name="hidden" id="hidden"
+									value="Эта информация отрпавится на сервер, ее не увидит пользователь">
+								<label for="hidden">Скрытый тип type="hidden" type="hidden" value="Эта информация отрпавится на
+									сервер, ее не увидит пользователь"</label>
+							</div>
+						</div>
+						<div class="form-all__img form-all__line">
+							<div class="form-all__image">
+								<label for="image">Элементы input типа image используются для создания графических кнопок
+									отправки, то есть кнопок отправки, которые принимают форму изображения, а не текста (адрес к
+									изображению задается в атрибуте src="img/5.jpg" прямо в html</label>
+								<input class="image" type="image" src="img/5.jpg" alt="описание изображения" id="image">
+
+							</div>
+						</div>
+						<div class="form-all__mth form-all__line">
+							<div class="form-all__month">
+								<label for="month">input со значением type="month", опять же safari и firefox отличились</label>
+								<input class="month" type="month" name="month" id="month" value="2021-01">
+							</div>
+						</div>
+						<div class="form-all__nbr form-all__line">
+							<div class="form-all__number">
+								<label for="number">input со значением type="number". Это значение type работает везде
+									(line-height: 50px; в shcrome разводит кнопки, а в safari двигает сомо значение
+									(строрку))</label>
+								<input class="number" type="number" name="number" id="number">
+							</div>
+						</div>
+						<div class="form-all__pswd form-all__line">
+							<div class="form-all__password">
+								<label for="password">input со значением type="password". Это значение type работает
+									везде <br>(<span class="span">inputmode="numeric"</span> - мобильные устройства с
+									виртуальными клавиатурами могут
+									переключаться на макет цифровой клавиатуры вместо полной клавиатуры, чтобы облегчить ввод
+									пароля. Это удобно, если пароль будет только из цифр. <br> <span class="span"> minlength="4"
+										maxlength="8"</span> - чтобы установить минимальную и максимальную допустимую длину
+									пароля, сказав
+									что PIN-код пользователя должен быть не менее четырех и
+									не более восьми цифр. <br> <span class="span">size="8"</span> - Начальный размер элемента
+									управления. Это значение
+									выражается в
+									пикселях, если только значение атрибута type не является текстом или паролем, и в этом случае
+									это целое число символов. Начиная с HTML5, этот атрибут применяется только тогда, когда для
+									атрибута type задано значение text, search, tel, url, email или password; в противном случае
+									игнорируется. Кроме того, размер должен быть больше нуля. Если вы не укажете размер, будет
+									использовано значение по умолчанию 20. Атрибут size используется для обеспечения того, чтобы
+									элемент управления ввода пароля имел ширину в восемь символов.)</label>
+								<input class="password" type="password" name="password" id="password" inputmode="numeric"
+									minlength="4" maxlength="8" size="8">
+							</div>
+						</div>
+						<div class="form-all__rd form-all__line">
+							<div class="form-all__radio">
+								<label for="radio-1">1 input со значением type="radio". Это значение type работает
+									везде. Для одного блока радио, каждой кнопоке нужно задать свое значение value, но оиднаковое
+									занчение name="radio"(внутрь label
+									поместил тег img)
+									<img src="img/5.jpg" alt="описание изображения">
+								</label>
+								<input class="radio" type="radio" name="radio" value="radio-1" id="radio-1">
+							</div>
+							<div class="form-all__radio">
+								<label for="radio-2">1 input со значением type="radio". Это значение type работает
+									везде. Для одного блока радио, каждой кнопоке нужно задать свое занчение value (если задать
+									одинаковое занчение width and height, то можно вполне сносно увеличить стандартный iput.
+									width: 50px;
+									height: 50px;)</label>
+								<input class="radio" type="radio" name="radio" value="radio-2" id="radio-2">
+							</div>
+							<div class="form-all__radio">
+								<input class="radio" type="radio" name="radio" value="radio-3" id="radio-3">
+								<label for="radio-3">1 input со значением type="radio". Это значение type работает везде. Для
+									одного блока радио, каждой кнопоке нужно задать свое занчение value (кастомные стили radio
+									кнопки)</label>
+							</div>
+						</div>
+						<p style="font-size: 40px;"><span class="span">Дальше без кастомных стилей</span class="span"></p>
+						<div class="form-all__rng form-all__line">
+							<div class="form-all__range">
+								<label for="range">input со значением type="range". Это значение type работает
+									везде</label>
+								<input class="range" type="range" name="range" id="range">
+							</div>
+						</div>
+						<div class="form-all__rng-2 form-all__line">
+							<div class="form-all__range-2">
+								<label for="range-2">input со значением type="range". Value = 15. Это значение type работает
+									везде</label>
+								<input class="range-2" type="range" name="range-2" id="range-2" value="15">
+							</div>
+						</div>
+						<div class="form-all__rst form-all__line">
+							<div class="form-all__reset">
+								<label for="reset">input со значением type="reset". Это значение type работает
+									везде</label>
+								<input class="reset" type="reset" value="reset" id="reset">
+							</div>
+						</div>
+						<div class="form-all__srch form-all__line">
+							<div class="form-all__search">
+								<label for="search">input со значением type="search". При наборе символов появляется иконка
+									крестика. Отличился только firefox</label>
+								<input class="search" type="search" name="search" id="search">
+							</div>
+						</div>
+						<div class="form-all__tel form-all__line">
+							<div class="form-all__telephone">
+								<label for="search">input со значением type="tel". Это значение type работает
+									везде одинаково, как обычное поле с текстом</label>
+								<input class="tel" type="tel" name="tel" id="tel">
+							</div>
+						</div>
+						<div class="form-all__tm form-all__line">
+							<div class="form-all__time">
+								<label for="time">input со значением type="time", опять же safari и чуть менее firefox
+									отличились </label>
+								<input class="time" type="time" name="time" id="time">
+							</div>
+						</div>
+						<div class="form-all__url form-all__line">
+							<div class="form-all__url">
+								<label for="url">input со значением type="url", chrome и opera предлагают варианты уже введенных
+									адресов, safari и opera предостваляют только проверку на валидность ссылки. </label>
+								<input class="url" type="url" name="url" id="url">
+							</div>
+						</div>
+						<div class="form-all__url form-all__line">
+							<div class="form-all__url">
+								<label for="week">input со значением type="week", опять же safari и firefox
+									отличились, предствиа поле как обчное текстовое.
+								</label>
+								<input class="week" type="week" name="week" id="week">
+							</div>
+						</div>
+						<div class="form-all__txtr form-all__line">
+							<div class="form-all__textarea">
+								<label for="textarea">textarea
+								</label>
+								<textarea class="textarea" name="textarea" id="textarea"></textarea>
+							</div>
+						</div>
+						<div class="form-all__slt form-all__line">
+							<div class="form-all__select">
+								<label for="select">select
+								</label>
+								<select class="select" name="select" id="select">
+									<option value="s-1">select-1</option>
+									<option value="s-2">select-2</option>
+									<option value="s-3">select-3</option>
+									<option value="s-4">select-4</option>
+									<option value="s-5">select-5</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-all__sbm form-all__line">
+							<div class="form-all__submit">
+								<button class="submit" type="submit">button</button>
+							</div>
+						</div>
+					</div>
+				</form>
+
+
+
+				<!-- <form action="#">
+					<input type="text">
+					<input type="button" value="">
+					<input type="checkbox" name="" id="">
+					<input type="color" name="color" id="">
+					<input type="date" name="" id="">
+					<input type="datetime" name="" id="">
+					<input type="datetime-local" name="" id="">
+					<input type="email" name="" id="">
+				</form> -->
+			</div>
+		</div>
+	</main>
+
+
+
+	<footer class="footer">
+
+
+
+	</footer>
+</body>
+
+</html>
